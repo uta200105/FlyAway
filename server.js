@@ -2,6 +2,9 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var helmet = require("helmet");
 
+var jetliner = require("./controllers/jetliner.js");
+
+
 var PORT = process.env.PORT || 8080;
 
 var app = express();
@@ -18,11 +21,7 @@ app.engine("handlebars", expresshbs({ defaultLayout: "main"}));
 
 app.set("view engine", "handlebars");
 
-require("./controllers/jetliner.js")(app);
-
-app.get("/", function(req, res) {
-    res.send("<h1> Hello World </h1>")
-});
+app.use(jetliner);
 
 app.listen(PORT, function() {
     console.log("App now listening at localhost:" + PORT);
