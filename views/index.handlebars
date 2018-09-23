@@ -1,0 +1,52 @@
+<div class="container">
+  <h2 class="my-5 text-center text-primary">Select your flight destination</h2>
+  <form class="search-form">
+    <div class="form-group ">
+      <label for="exampleFormControlSelect1">Depart Place</label>
+      <select class="form-control" id="departure">
+        <option>Dallas</option>
+        <option>Los Angeles</option>
+        <option>New York</option>
+        <option>Seatle</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="exampleFormControlSelect1">Arrive Place</label>
+      <select class="form-control" id="arrival">
+        <option>Dallas</option>
+        <option>Los Angeles</option>
+        <option>New York</option>
+        <option>Seatle</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="Ddate">Depart Date</label>
+      <input type="date" class=" my-5 form-control end-date text-center p-3">
+    </div>
+    <div class="form-group">
+      <label for="Adate">Arrival Date</label>
+      <input type="date" class=" my-5 form-control end-date text-center p-3">
+    </div>
+    <button type="submit" class="btn btn-primary">Search Flights</button>
+  </form>
+
+  <h2 class="mt-5">Find your Reservation</h2>
+  <form class="form-inline find-reservation my-5">
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="firstName" class="sr-only">FirstName</label>
+      <input type="text" class="form-control" id="firstName" placeholder="First Name">
+    </div>
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="lastName" class="sr-only">LastName</label>
+      <input type="text" class="form-control" id="lastName" placeholder="Last Name">
+    </div>
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="inputPassword2" class="sr-only">Email</label>
+      <input type="email" class="form-control" id="email" placeholder="Email">
+    </div>
+    <button type="submit" class="btn btn-primary mb-2">Search</button>
+  </form>
+
+</div>
