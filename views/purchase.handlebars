@@ -1,0 +1,80 @@
+<div class="container my-4">
+  <form class="data-form">
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input type="text" class="form-control" id="firstName" placeholder="Enter Name">
+    </div>
+    <div class="form-group">
+      <label for="middleName">Middle Name</label>
+      <input type="text" class="form-control" id="middleName" placeholder="Enter Middle Name">
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last Name</label>
+      <input type="text" class="form-control" id="lastName" placeholder="Enter Last Name">
+    </div>
+    <div class="form-group">
+      <label for="birth">Date of Birth</label>
+      <input type="date" class="form-control" id="birth" placeholder="Enter Date of Birth">
+    </div>
+    <div class="form-group">
+      <label for="email">Email address</label>
+      <input type="email" class="form-control" id="email" placeholder="Enter email">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone</label>
+      <input type="phone" class="form-control" id="phone" placeholder="Enter Phone Number">
+    </div>
+    <div class="form-group">
+      <label for="cardtype">Card Type</label>
+      <select class="form-control" id="cardType">
+        <option>VISA</option>
+        <option>MASTERCARD</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="cardnumber">Card Number</label>
+      <input type="number" class="form-control" id="cardNumber" placeholder="Enter Credit Card Number">
+    </div>
+    <div class="form-group">
+      <label for="firstNameCard">First Name on Card</label>
+      <input type="text" class="form-control" id="firstNameOnCard" placeholder="Enter Name">
+    </div>
+    <div class="form-group">
+      <label for="lastNameCard">Last Name on Card</label>
+      <input type="text" class="form-control" id="lastOnNameCard" placeholder="Enter Last Name">
+    </div>
+    <div class="form-group">
+      <label for="expiration date">Expiration Date</label>
+      <input type="month" name="monthcard" class="form-control" id="cardExp" placeholder="Month/Year">
+    </div>
+    <div class="form-group">
+      <label for="cvc">CVC</label>
+      <input type="number" name="quantity" class="form-control" id="cvcNumber" placeholder="CVC">
+    </div>
+    <div class="form-group">
+      <label for="firstName">Country</label>
+      <input type="text" class="form-control" id="country" placeholder="Enter Country">
+    </div>
+    <div class="form-group">
+      <label for="street">Street Address</label>
+      <input type="text" class="form-control" id="street" placeholder="Enter Street Address">
+    </div>
+    <div class="form-group">
+      <label for="city">City</label>
+      <input type="text" class="form-control" id="city" placeholder="Enter City">
+    </div>
+    <div class="form-group">
+      <label for="city">State</label>
+      <input type="text" class="form-control" id="state" placeholder="Enter State">
+    </div>
+    <div class="form-group">
+      <label for="zipcode">Zip Code</label>
+      <input type="number" class="form-control" id="zipcode" placeholder="Enter ZipCode">
+    </div>
+    <input type="hidden" id="lightId" value="{{flightId}}">
+    <input type="hidden" id="availableSeats" value="{{seats}}">
+
+    <button type="submit" class="btn btn-primary">Purchase</button>
+  </form>
+</div>
