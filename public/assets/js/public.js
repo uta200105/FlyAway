@@ -1,24 +1,71 @@
 $(function() {
   $('.search-form').on('submit', function(event) {
-    // Make sure to preventDefault on a submit event.
     event.preventDefault();
 
-    var newSearch = {
-      departure: $('#departure')
-        .val()
-        .trim(),
-      arrival: $('#arrival')
-        .val()
-        .trim()
-    };
+    var roundtrip = $('[name=rountt]:checked').val();
+    console.log(roundtrip);
 
-    console.log(newSearch);
-    var URL =
-      '/flights/api/arrival/' +
-      newSearch.arrival +
-      '/departure/' +
-      newSearch.departure;
-    window.location.href = URL;
+    if (roundtrip) {
+      var newSearch = {
+        departure: $('#departure')
+          .val()
+          .trim(),
+        arrival: $('#arrival')
+          .val()
+          .trim(),
+        departure2: $('#arrival')
+          .val()
+          .trim(),
+        arrival2: $('#departure')
+          .val()
+          .trim(),
+        departdate: $('#depart_date')
+          .val()
+          .trim(),
+        returningdate: $('#returning_date')
+          .val()
+          .trim()
+      };
+
+      console.log(newSearch);
+      var URL =
+        '/flights/' +
+        newSearch.departure +
+        '/' +
+        newSearch.arrival +
+        '/' +
+        newSearch.departdate +
+        '/' +
+        newSearch.departure2 +
+        '/' +
+        newSearch.arrival2 +
+        '/' +
+        newSearch.returningdate;
+
+      window.location.href = URL;
+    } else {
+      var newSearch = {
+        departure: $('#departure')
+          .val()
+          .trim(),
+        arrival: $('#arrival')
+          .val()
+          .trim(),
+        departdate: $('#depart_date')
+          .val()
+          .trim()
+      };
+      console.log(newSearch);
+      var URL =
+        '/flights/' +
+        newSearch.departure +
+        '/' +
+        newSearch.arrival +
+        '/' +
+        newSearch.departdate;
+
+      window.location.href = URL;
+    }
   });
 
   $('.find-reservation ').on('submit', function(event) {

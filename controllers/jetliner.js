@@ -9,26 +9,23 @@ router.get('/', function(req, res) {
   res.render('index');
 });
 
-router.get('/flights/api/arrival/:arrival/departure/:departure', function(
-  req,
-  res
-) {
-  var condition1 = `depart_place =  '${req.params.departure}'`;
-  var condition2 = `arrive_place =  '${req.params.arrival}'`;
-  console.log('params: ', req.params);
-  jets.selectWhere(condition1, condition2, function(result) {
-    var hbsObject = {
-      flights: result
-    };
-    if (result.affectedrows == 0) {
-      return res.status(404).end();
-    } else {
-      console.log('hbsObject', hbsObject);
-      res.render('fligths', hbsObject);
-      // res.status(200).end();
-    }
-  });
-});
+router.get(
+  '/flights/:departure/:arrival/:departdate/:departure2?/:arrival2?/:returningdate?',
+  function(req, res) {
+    var condition1 = `depart_place =  '${req.params.departure}'`;
+    var condition2 = `arrive_place =  '${req.params.arrival}'`;
+    var condition3 = `depart_date =  '${req.params.departdate}'`;
+    console.log('params: ', req.params);
+    jets.selectWhere(condition1, condition2, condition3, function(results) {
+      var condition1 = `depart_place =  '${req.params.departure2}'`;
+      var condition2 = `arrive_place =  '${req.params.arrival2}'`;
+      var condition3 = `depart_date =  '${req.params.returningdate}'`;
+      jets.selectWhere(condition1, condition2, condition3, function(results2) {
+        res.render('fligths', { flights: results, flights2: results2 });
+      });
+    });
+  }
+);
 
 router.get('/flightId/:id/seatsAva/:seats', function(req, res) {
   console.log(req.params.id);
