@@ -1,58 +1,176 @@
-<div class="container">
-  <h2 class="my-5 text-center text-primary">Select your flight destination</h2>
-  <form class="search-form">
-    <div class="form-group ">
-      <label for="exampleFormControlSelect1">Depart Place</label>
-      <select class="form-control" id="departure">
-        <option>Dallas</option>
-        <option>Los Angeles</option>
-        <option>New York</option>
-        <option>Seatle</option>
-      </select>
-    </div>
+<header id="home-section">
+  <div class="dark-overlay">
+    <div class="home-inner">
+      <div class="container">
+        <header id="main-header">
 
-    <div class="form-group">
-      <label for="exampleFormControlSelect1">Arrive Place</label>
-      <select class="form-control" id="arrival">
-        <option>Dallas</option>
-        <option>Los Angeles</option>
-        <option>New York</option>
-        <option>Seatle</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="roundtrip">Sleepy?</label><br>
-      <input type="radio" name="rountt" value="0">One Way<br>
-      <input type="radio" name="rountt" value="1" checked> Round Trip
-    </div>
+          <div class="row">
 
-    <div class="form-group">
-      <label for="Ddate">Depart Date</label>
-      <input id="depart_date" type="date" class=" my-5 form-control end-date text-center p-3">
-    </div>
-    <div class="form-group">
-      <label for="Adate">Returning Date</label>
-      <input id="returning_date" type="date" class=" my-5 form-control end-date text-center p-3">
-    </div>
+            <div class="col-lg-5 col-md-7">
+              <div class="d-flex flex-column">
+                <div class="d-flex flex-row text-white align-items-stretch text-center">
+                  <div class="port-item p-4 mr-1 mb-1 bg-primary" data-toggle="collapse" data-target="#home">
+                    <span>Flight Reservation</span>
+                  </div>
+                  <div class="port-item p-4 mr-1 mb-1 bg-dark" data-toggle="collapse" data-target="#resume">
+                    <span>My booking</span>
+                  </div>
+                  <div class="port-item p-4  mr-1 mb-1 bg-dark" data-toggle="collapse" data-target="#work">
+                    <span>Check-In</span>
+                  </div>
+                  <div class="port-item p-4 mr-1 mb-1 bg-dark" data-toggle="collapse" data-target="#contact">
+                    <span>Flight Status</span>
+                  </div>
+                </div>
+              </div>
+              <div id="home" class="collapse p-4 show bg-primary">
+                <div class="d-flex flex-column">
+                  <div class="d-flex flex-row text-dark align-items-stretch text-center">
+                    <div class="port-item p-1 bg-primary" data-toggle="collapse" data-target="#">
+                    </div>
+                    <div class="port-item p-1  bg-dark text-white" data-toggle="collapse" data-target="#round-trip">
+                      <span>Round Trip</span>
+                    </div>
+                    <div class="port-item p-1 bg-white" data-toggle="collapse" data-target="#one-way">
+                      <span>One Way</span>
+                    </div>
+                    <div class="port-item p-1 bg-primary" data-toggle="collapse" data-target="#">
+                    </div>
+                  </div>
+                </div>
 
-    <button type="submit" class="btn btn-primary">Search Flights</button>
-  </form>
+                <div class="div mt-3" id="round-trip">
+                  <form class="search-form">
+                    <div class="form-group ">
+                      <select class="form-control" id="departure">
+                        <option>Dallas</option>
+                        <option>Los Angeles</option>
+                        <option>New York</option>
+                        <option>Seatle</option>
+                      </select>
+                    </div>
 
-  <h2 class="mt-5">Find your Reservation</h2>
-  <form class="form-inline find-reservation my-5">
-    <div class="form-group mx-sm-3 mb-2">
-      <label for="firstName" class="sr-only">FirstName</label>
-      <input type="text" class="form-control" id="firstName" placeholder="First Name">
-    </div>
-    <div class="form-group mx-sm-3 mb-2">
-      <label for="lastName" class="sr-only">LastName</label>
-      <input type="text" class="form-control" id="lastName" placeholder="Last Name">
-    </div>
-    <div class="form-group mx-sm-3 mb-2">
-      <label for="inputPassword2" class="sr-only">Email</label>
-      <input type="email" class="form-control" id="email" placeholder="Email">
-    </div>
-    <button type="submit" class="btn btn-primary mb-2">Search</button>
-  </form>
+                    <div class="form-group">
+                      <select class="form-control" id="arrival">
+                        <option>Dallas</option>
+                        <option>Los Angeles</option>
+                        <option>New York</option>
+                        <option>Seatle</option>
+                      </select>
+                    </div>
 
-</div>
+                    <div class="form-row px-1">
+                      <div class="form-group">
+                        <input id="depart_date" type="date" class="form-control end-date text-center">
+                      </div>
+                      <div class="form-group">
+                        <input id="returning_date" type="date" class="form-control end-date text-center ">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="roundtrip" class="text-white">Type of flight</label><br>
+                      <input type="radio" class="text-muted" name="rountt" value="1" checked> Round Trip
+                    </div>
+                    <button type="submit" class="btn btn-dark btn-block">Search Flights</button>
+                  </form>
+
+                </div>
+                <div class="div mt-3" id="one-way">
+                  <form class="search-form">
+                    <div class="form-group ">
+                      <select class="form-control" id="departure">
+                        <option>Dallas</option>
+                        <option>Los Angeles</option>
+                        <option>New York</option>
+                        <option>Seatle</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <select class="form-control" id="arrival">
+                        <option>New York</option>
+                        <option>Dallas</option>
+                        <option>Los Angeles</option>
+                        <option>Seatle</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <input id="depart_date" type="date" class="form-control end-date text-center p-3">
+                    </div>
+                    <div class="m-auto">
+                      <div class="form-group">
+                        <label for="roundtrip">Type of flight</label><br>
+                        <input type="radio" name="rountt" value="0" checked>One Way<br>
+                      </div>
+                      <button type="submit" class="btn btn-dark m-auto btn-block">Search Flights</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <!-- RESUME -->
+              <div id="resume" class="collapse mt-3 bg-dark text-white">
+                <form class="form-inline find-reservation my-5">
+                  <div class="form-group mx-sm-3 mb-2">
+                    <label for="firstName" class="sr-only">FirstName</label>
+                    <input type="text" class="form-control" id="firstName" placeholder="First Name">
+                  </div>
+                  <div class="form-group mx-sm-3 mb-2">
+                    <label for="lastName" class="sr-only">LastName</label>
+                    <input type="text" class="form-control" id="lastName" placeholder="Last Name">
+                  </div>
+                  <div class="form-group mx-sm-3 mb-2">
+                    <label for="inputPassword2" class="sr-only">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="Email">
+                  </div>
+                  <button type="submit" class="btn btn-primary btn-block">Search</button>
+                </form>
+              </div>
+              <!-- WORK -->
+              <div id="work" class="collapse">
+
+              </div>
+              <div id="contact" class="collapse">
+
+              </div>
+            </div>
+
+
+            <div class="col-lg-7 d-none d-lg-block">
+              <h1 class="display-4 text-white"> <strong>FLYAWAY!</strong> A Texan Airline<strong> that travels
+                  with you!</strong></h1>
+              <div class="d-flex flex-row">
+                <div class="p-4 align-self-start">
+                  <i class="fa fa-check"></i>
+                </div>
+                <div class="p-4 align-self-end text-light">
+                  We created more legroom for you. Just sit back, relax, and enjoy your flight
+                </div>
+              </div>
+              <div class="d-flex flex-row">
+                <div class="p-4 align-self-start">
+                  <i class="fa fa-check"></i>
+                </div>
+                <div class="p-4 align-self-end text-light">
+                  More than 4 Destinations. Snacks and Drinks free. More Space Between Seats. Pet Friendly.
+                </div>
+              </div>
+              <div class="d-flex flex-row">
+                <div class="p-4 align-self-start">
+                  <i class="fa fa-check"></i>
+                </div>
+                <div class="p-4 align-self-end text-light">
+                  In the United Sates, FlyAway flies into Los Angeles (LAX), Dallas (DFW), Seatle, and JFK Airport in
+                  New York
+                </div>
+              </div>
+
+            </div>
+
+
+          </div>
+        </header>
+
+      </div>
+    </div>
+  </div>
+  </div>
+</header>
