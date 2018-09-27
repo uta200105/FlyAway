@@ -1,3 +1,4 @@
+<!-- main header-->
 <header id="home-section">
   <div class="dark-overlay">
     <div class="home-inner">
@@ -6,9 +7,12 @@
 
           <div class="row">
 
+            <!-- Main Toggles -->
             <div class="col-lg-5 col-md-7">
               <div class="d-flex flex-column">
                 <div class="d-flex flex-row text-white align-items-stretch text-center">
+
+
                   <div class="port-item p-4 mr-1 mb-1 bg-primary" data-toggle="collapse" data-target="#home">
                     <span>Flight Reservation</span>
                   </div>
@@ -23,15 +27,20 @@
                   </div>
                 </div>
               </div>
+
+              <!--Main toggle Area-->
               <div id="home" class="collapse p-4 show bg-primary">
                 <div class="d-flex flex-column">
                   <div class="d-flex flex-row text-dark align-items-stretch text-center">
-                    <div class="port-item p-1 bg-primary" data-toggle="collapse" data-target="#">
+
+                    <!--Nested Toggle Headings-->
+                    <div class="p-1 bg-primary" data-toggle="collapse" data-target="#">
                     </div>
-                    <div class="port-item p-1  bg-dark text-white" data-toggle="collapse" data-target="#round-trip">
+
+                    <div class="p-1 sub-port-rt bg-dark text-white" data-toggle="collapse" data-target="#round-trip">
                       <span>Round Trip</span>
                     </div>
-                    <div class="port-item p-1 bg-white" data-toggle="collapse" data-target="#one-way">
+                    <div class="p-1 sub-port-ow bg-white" data-toggle="collapse" data-target="#one-way">
                       <span>One Way</span>
                     </div>
                     <div class="port-item p-1 bg-primary" data-toggle="collapse" data-target="#">
@@ -39,7 +48,9 @@
                   </div>
                 </div>
 
-                <div class="div mt-3" id="round-trip">
+                <!--Nested Toggle Contend-->
+
+                <div class="div mt-3 collapse show" id="round-trip">
                   <form class="search-form">
                     <div class="form-group ">
                       <select class="form-control" id="departure">
@@ -75,7 +86,9 @@
                   </form>
 
                 </div>
-                <div class="div mt-3" id="one-way">
+
+
+                <div class="div mt-3 collapse" id="one-way">
                   <form class="search-form">
                     <div class="form-group ">
                       <select class="form-control" id="departure">
