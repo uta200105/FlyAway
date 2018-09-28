@@ -1,0 +1,37 @@
+<div class="container">
+  {{#each fligth}}
+  <div class="card text-center my-4">
+    <div class="card-header">
+      Booking Number: FWA-2018-{{booking_number}}
+    </div>
+    <div class="card-body">
+      <h3 class="card-title">Passenger: {{first_name}} {{last_name}}</h3>
+      <h5>Your Itinerary</h5>
+      <p class="card-text"> FLIGHT #FA{{flight_id}}</p>
+      <p class="card-text"> DEPARTS: {{depart_time}}</p>
+      <p class="card-text"> AIRPORT: {{depart_airport}} {{depart_place}}</p>
+      <br>
+      <p class="card-text"> ARRIVES: {{arrival_time}}</p>
+      <p class="card-text"> AIRPORT: {{arrival_airport}} {{arrive_place}}</p>
+      <button type="submit" class="btn btn-primary delete-res" data-id="{{this.booking_number}}">Cancel Reservation</button>
+    </div>
+    <div class="card-footer text-muted">
+      If you have any questions about your refund request, email us at info@flyaway.com or contact our call center.​​
+    </div>
+  </div>
+  {{/each}}
+
+</div>
+
+<header id="home-section">
+  <div class="dark-overlay">
+    <div class="home-inner">
+      <div class="container">
+
+      </div>
+
+    </div>
+
+
+  </div>
+</header>

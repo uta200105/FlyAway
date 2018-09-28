@@ -1,0 +1,74 @@
+body {
+  background: white;
+  color: #fff;
+}
+
+.navbar {
+  border-bottom: #008ed6 3px solid;
+  opacity: 0.9;
+}
+
+#home-section {
+  background: url('../images/background.jpg') no-repeat;
+  margin-top: 4.5em;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 700px;
+}
+#survey {
+  margin-top: 70px;
+  background: url('../img/people.jpg');
+  background-size: cover;
+}
+.dark-overlay {
+  background-color: rgba(1, 21, 77, 0.295);
+  position: absolute;
+  margin-top: 4.5em;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 700px;
+}
+
+.home-inner {
+  padding-top: 75px;
+}
+
+.card-form {
+  opacity: 0.9;
+}
+
+.fa {
+  color: #008ed6;
+  background: #fff;
+  padding: 4px;
+  border-radius: 5px;
+  font-size: 30px;
+}
+
+#main-header img {
+  width: 100%;
+  height: 100%;
+}
+
+#main-header .port-item {
+  width: 33.5%;
+}
+#main-header .port-item .fa {
+  font-size: 2em;
+}
+
+#main-header .port-item:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+select {
+  font-family: 'Font Awesome\ 5 Brands' , 'arial';
+}
+
+@media (min-width: 1199px) {
+  .port-item {
+    padding: 3em !important;
+  }
+}
