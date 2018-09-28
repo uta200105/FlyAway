@@ -13,8 +13,10 @@ var jets = {
       }
     );
   },
-  selectWhere: function(condition1, condition2, cb) {
-    orm.selectWhere('flights', condition1, condition2, function(res) {
+  selectWhere: function(condition1, condition2, condition3, cb) {
+    orm.selectWhere('flights', condition1, condition2, condition3, function(
+      res
+    ) {
       cb(res);
     });
   },

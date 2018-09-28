@@ -6,14 +6,15 @@ CREATE TABLE flights
 	id int NOT NULL AUTO_INCREMENT,
   depart_place varchar(60) NOT NULL,
   arrive_place varchar(60) NOT NULL,
-  depart_datetime DATETIME(6) NOT NULL,
-  arrival_datetime DATETIME(6) NOT NULL,
+  depart_date DATE NOT NULL,
+  depart_time TIME NOT NULL,
+  arrival_date DATE NOT NULL,
+   arrival_time TIME NOT NULL,
   depart_airport varchar (60) NOT NULL,
   arrival_airport varchar(60) NOT NULL,
   price DECIMAL(10,2) NOT NULL,
   seat_capacity int NOT NULL,
   seats_available int NOT NULL,
-  flight_availability BOOLEAN DEFAULT true,
 	PRIMARY KEY (id)
 );
 

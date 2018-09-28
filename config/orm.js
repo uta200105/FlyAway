@@ -36,14 +36,16 @@ function objToSql(ob) {
 }
 
 var orm = {
-  selectWhere: function(tableInput, condition1, condition2, cb) {
+  selectWhere: function(tableInput, condition1, condition2, condition3, cb) {
     var queryString =
-      "SELECT *, DATE_FORMAT(arrival_datetime, '%M/%e/%Y') AS formatted_day, DATE_FORMAT(depart_datetime, '%h:%i %p') AS formatted_departure, DATE_FORMAT(arrival_datetime, '%h:%i %p') AS formatted_arrival FROM " +
+      "SELECT *, DATE_FORMAT(arrival_date, '%M/%e/%Y') AS formatted_day, DATE_FORMAT(depart_time, '%h:%i %p') AS formatted_departure, DATE_FORMAT(arrival_time, '%h:%i %p') AS formatted_arrival FROM " +
       tableInput;
     queryString += ' WHERE ';
     queryString += condition1;
     queryString += ' AND ';
     queryString += condition2;
+    queryString += ' AND ';
+    queryString += condition3;
 
     connection.query(queryString, function(err, result) {
       if (err) {
