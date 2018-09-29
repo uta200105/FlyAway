@@ -1,14 +1,16 @@
+// REQUIRE DEPENDENCIES
 var express = require('express');
-
 var router = express.Router();
 
+// REQUIRE MODEL
 var jets = require('../models/jets.js');
 
-//Get Route
+//Get Route -HOME PAGE
 router.get('/', function(req, res) {
   res.render('index');
 });
 
+//Get Route - FLIGHT SEARCH
 router.get(
   '/flights/:departure/:arrival/:departdate/:departure2?/:arrival2?/:returningdate?',
   function(req, res) {
@@ -27,6 +29,7 @@ router.get(
   }
 );
 
+//Get Route - PURCHASE PAGE
 router.get('/flightId/:id1/:seats1st/:id2?/:seats2nd?', function(req, res) {
   console.log(req.params.id1);
   res.render('purchase', {
@@ -35,6 +38,44 @@ router.get('/flightId/:id1/:seats1st/:id2?/:seats2nd?', function(req, res) {
   });
 });
 
+//Get Route - RESERVATION PAGE
+router.get(
+  '/reservation/email/:email/firstName/:firstName/lastName/:lastName',
+  function(req, res) {
+    var condition1 = `email =  '${req.params.email}'`;
+    var condition2 = `first_name =  '${req.params.firstName}'`;
+    var condition3 = `last_name =  '${req.params.lastName}'`;
+    jets.findJoinTables(condition1, condition2, condition3, function(data) {
+      var hbsObject = {
+        fligth: data
+      };
+      res.render('reservation', hbsObject);
+    });
+  }
+);
+
+//Get Route - FLIGHT STATUS PAGE
+router.get('/flightsatus/:flightNumer/:bookingNumber/:email', function(
+  req,
+  res
+) {
+  var condition1 = `flight_id =  '${req.params.flightNumer}'`;
+  var condition2 = `booking_number =  '${req.params.bookingNumber}'`;
+  var condition3 = `email =  '${req.params.email}'`;
+  jets.findJoinTables(condition1, condition2, condition3, function(data) {
+    var hbsObject = {
+      fligth: data
+    };
+    res.render('flightstatus', hbsObject);
+  });
+});
+
+//Get Route - 404
+router.get('*', function(req, res) {
+  res.status(404).render('notfound');
+});
+
+//Post Route - BOOKINGS
 router.post('/api/bookings', function(req, res) {
   jets.create(
     [
@@ -62,6 +103,7 @@ router.post('/api/bookings', function(req, res) {
   );
 });
 
+//Update Route - UPDATE SEATS AVAILABLE
 router.put('/api/bookings/:id', function(req, res) {
   var condition = 'id = ' + req.params.id;
   var condition1 = 'seats_available = ' + req.body.seatsA;
@@ -78,36 +120,7 @@ router.put('/api/bookings/:id', function(req, res) {
   });
 });
 
-router.get(
-  '/reservation/email/:email/firstName/:firstName/lastName/:lastName',
-  function(req, res) {
-    var condition1 = `email =  '${req.params.email}'`;
-    var condition2 = `first_name =  '${req.params.firstName}'`;
-    var condition3 = `last_name =  '${req.params.lastName}'`;
-    jets.findJoinTables(condition1, condition2, condition3, function(data) {
-      var hbsObject = {
-        fligth: data
-      };
-      res.render('reservation', hbsObject);
-    });
-  }
-);
-
-router.get('/flightsatus/:flightNumer/:bookingNumber/:email', function(
-  req,
-  res
-) {
-  var condition1 = `flight_id =  '${req.params.flightNumer}'`;
-  var condition2 = `booking_number =  '${req.params.bookingNumber}'`;
-  var condition3 = `email =  '${req.params.email}'`;
-  jets.findJoinTables(condition1, condition2, condition3, function(data) {
-    var hbsObject = {
-      fligth: data
-    };
-    res.render('flightstatus', hbsObject);
-  });
-});
-
+//Delete Route - DELETE BOOKING
 router.delete('/api/bookings/:id', function(req, res) {
   var condition = 'booking_number = ' + req.params.id;
   jets.delete(condition, function(result) {
@@ -119,8 +132,5 @@ router.delete('/api/bookings/:id', function(req, res) {
   });
 });
 
-router.get('*', function(req, res) {
-  res.status(404).render('notfound');
-});
-
+//EXPORT ROUTER
 module.exports = router;

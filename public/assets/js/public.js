@@ -69,6 +69,7 @@ $(function() {
     window.location.href = URL;
   });
 
+  //The next event will find reservations
   $('.find-reservation').on('submit', function(event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
@@ -95,6 +96,7 @@ $(function() {
     window.location.href = URL;
   });
 
+  //The next event will find flight-status
   $('.find-flightStatus').on('submit', function(event) {
     event.preventDefault();
 
@@ -119,6 +121,7 @@ $(function() {
     window.location.href = URL;
   });
 
+  //The next event will find flight-list
   $('.flights-list').on('submit', function(event) {
     event.preventDefault();
 
@@ -165,22 +168,7 @@ $(function() {
       window.location.href = URL;
     }
   });
-
-  // $('.selectedFlight').on('click', function(event) {
-  //   // Make sure to preventDefault on a submit event.
-  //   event.preventDefault();
-
-  //   // var id = $(this).data('id');
-  //   var flightInfo = {
-  //     id: $(this).data('id'),
-  //     seats_available: $(this).data('seats')
-  //   };
-
-  //   var URL =
-  //     '/flightId/' + flightInfo.id + '/seatsAva/' + flightInfo.seats_available;
-  //   window.location.href = URL;
-  // });
-
+  //The next event will send the user info to a post route
   $('.data-form').on('submit', function(event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
@@ -243,6 +231,7 @@ $(function() {
     window.location.href = URL;
   });
 
+  //The next event will trigger a delete route
   $('.delete-res').on('click', function(event) {
     var id = $(this).data('id');
     $.ajax('/api/bookings/' + id, {

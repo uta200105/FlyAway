@@ -1,7 +1,8 @@
-//Import Mysql connection
+// --- IMPORT CONNECTION MSYQL ----//
 var connection = require('../config/connection.js');
 
-//Helper functions
+// ------------------------------ HELPER FUNCTIONS --------------------------------- //
+// 1. Helper functions for SQL syntax.
 function printQuestionMarks(num) {
   var arr = [];
 
@@ -12,7 +13,7 @@ function printQuestionMarks(num) {
   return arr.toString();
 }
 
-// Helper function to convert object key/value pairs to SQL syntax
+//2. Helper function to convert object key/value pairs to SQL syntax
 function objToSql(ob) {
   var arr = [];
   console.log('what i this obj: ' + ob[0]);
@@ -34,8 +35,12 @@ function objToSql(ob) {
   // translate array of strings to a single comma-separated string
   return arr.toString();
 }
+// ------------------------------------------------------------------------------- //
+
+// ------------------------------ ORM OBJECT--------------------------------- //
 
 var orm = {
+  //The next orm method displays the complete table data.
   selectWhere: function(tableInput, condition1, condition2, condition3, cb) {
     var queryString =
       "SELECT *, DATE_FORMAT(arrival_date, '%M/%e/%Y') AS formatted_day, DATE_FORMAT(depart_time, '%h:%i %p') AS formatted_departure, DATE_FORMAT(arrival_time, '%h:%i %p') AS formatted_arrival FROM " +
@@ -55,7 +60,7 @@ var orm = {
       }
     });
   },
-
+  //The next orm method allows us to join 2 tables and display their data.
   findJoinTables: function(
     tableOne,
     tableTwo,
@@ -90,6 +95,7 @@ var orm = {
     });
   },
 
+  //The next orm method allows us to insert one value in one specific column
   create: function(table, cols, vals, cb) {
     var queryString = 'INSERT INTO ' + table;
 
@@ -110,6 +116,7 @@ var orm = {
       cb(result);
     });
   },
+  //The next orm method allows us to update a value in one specific column whenever the condition is met.
   update: function(table, condition1, condition, cb) {
     // console.log('What is this: ' + objColVals);
     var queryString = 'UPDATE ' + table;
@@ -130,6 +137,7 @@ var orm = {
       cb(result);
     });
   },
+  //The next orm method allows us to delete a value in one specific column whenever the condition is met.
   delete: function(table, condition, cb) {
     var queryString = 'DELETE FROM ' + table;
     queryString += ' WHERE ';
@@ -145,4 +153,5 @@ var orm = {
   }
 };
 
+// --- EXPORT ORM ----//
 module.exports = orm;
