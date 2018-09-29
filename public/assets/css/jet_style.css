@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i');
+
+body {
+  background: white;
+  color: #fff;
+  font-family: 'PT Sans', sans-serif;
+}
+
+.navbar {
+  border-bottom: #008ed6 3px solid;
+  opacity: 0.9;
+}
+
+#home-section {
+  background: url('../images/beach.jpg') no-repeat;
+  margin-top: 75px;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 540px;
+  font-family: 'PT Sans', sans-serif;
+}
+.navbar-brand,
+.logo {
+  font-family: 'PT Sans', sans-serif;
+  color: #074496;
+}
+.dark-overlay {
+  background-color: rgba(224, 227, 233, 0.295);
+  position: absolute;
+  margin-top: 75px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 600px;
+}
+
+.home-inner {
+  padding-top: 40px;
+}
+
+.flights-list {
+  padding-top: 120px;
+  font-family: 'PT Sans', sans-serif;
+}
+.form-border {
+  border: #008ed6 1px solid;
+}
+
+.data-form {
+  padding-top: 80px;
+  font-family: 'PT Sans', sans-serif;
+}
+
+.reservation {
+  padding-top: 80px;
+  font-family: 'PT Sans', sans-serif;
+  padding-bottom: 80px;
+}
+
+.not-found {
+  padding: 300px 0 150px 0;
+  font-family: 'PT Sans', sans-serif;
+}
+
+.card-form {
+  opacity: 0.9;
+}
+
+.aside-purchase {
+  margin-top: 75px;
+  padding-top: 80px;
+  font-family: 'PT Sans', sans-serif;
+}
+
+.fa {
+  color: #008ed6;
+  background: #fff;
+  padding: 4px;
+  border-radius: 5px;
+  font-size: 30px;
+}
+
+#main-header img {
+  width: 100%;
+  height: 100%;
+}
+
+#main-header .port-item {
+  width: 33.5%;
+}
+#main-header .port-item .fa {
+  font-size: 2em;
+}
+
+#main-header .port-item:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+select {
+  font-family: 'Font Awesome\ 5 Brands', 'arial';
+}
+
+@media (min-width: 1199px) {
+  .port-item {
+    padding: 3em !important;
+  }
+}
+
+#carousel {
+  margin: auto;
+}
+
+@media (min-width: 768px) {
+  /* show 3 items */
+  .carousel-inner .active,
+  .carousel-inner .active + .carousel-item,
+  .carousel-inner .active + .carousel-item + .carousel-item,
+  .carousel-inner .active + .carousel-item + .carousel-item + .carousel-item {
+    display: block;
+  }
+
+  .carousel-inner
+    .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left),
+  .carousel-inner
+    .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left)
+    + .carousel-item,
+  .carousel-inner
+    .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left)
+    + .carousel-item
+    + .carousel-item,
+  .carousel-inner
+    .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left)
+    + .carousel-item
+    + .carousel-item
+    + .carousel-item {
+    transition: none;
+  }
+
+  .carousel-inner .carousel-item-next,
+  .carousel-inner .carousel-item-prev {
+    position: relative;
+    transform: translate3d(0, 0, 0);
+  }
+
+  .carousel-inner
+    .active.carousel-item
+    + .carousel-item
+    + .carousel-item
+    + .carousel-item
+    + .carousel-item {
+    position: absolute;
+    top: 0;
+    right: -25%;
+    z-index: -1;
+    display: block;
+    visibility: visible;
+  }
+
+  /* left or forward direction */
+  .active.carousel-item-left + .carousel-item-next.carousel-item-left,
+  .carousel-item-next.carousel-item-left + .carousel-item,
+  .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item,
+  .carousel-item-next.carousel-item-left
+    + .carousel-item
+    + .carousel-item
+    + .carousel-item,
+  .carousel-item-next.carousel-item-left
+    + .carousel-item
+    + .carousel-item
+    + .carousel-item
+    + .carousel-item {
+    position: relative;
+    transform: translate3d(-100%, 0, 0);
+    visibility: visible;
+  }
+
+  /* farthest right hidden item must be abso position for animations */
+  .carousel-inner .carousel-item-prev.carousel-item-right {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    display: block;
+    visibility: visible;
+  }
+
+  /* right or prev direction */
+  .active.carousel-item-right + .carousel-item-prev.carousel-item-right,
+  .carousel-item-prev.carousel-item-right + .carousel-item,
+  .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item,
+  .carousel-item-prev.carousel-item-right
+    + .carousel-item
+    + .carousel-item
+    + .carousel-item,
+  .carousel-item-prev.carousel-item-right
+    + .carousel-item
+    + .carousel-item
+    + .carousel-item
+    + .carousel-item {
+    position: relative;
+    transform: translate3d(100%, 0, 0);
+    visibility: visible;
+    display: block;
+    visibility: visible;
+  }
+}
