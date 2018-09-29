@@ -51,7 +51,6 @@ var orm = {
     queryString += condition2;
     queryString += ' AND ';
     queryString += condition3;
-
     connection.query(queryString, function(err, result) {
       if (err) {
         throw err;
