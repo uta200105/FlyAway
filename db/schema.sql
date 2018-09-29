@@ -9,12 +9,14 @@ CREATE TABLE flights
   depart_date DATE NOT NULL,
   depart_time TIME NOT NULL,
   arrival_date DATE NOT NULL,
-   arrival_time TIME NOT NULL,
+  arrival_time TIME NOT NULL,
   depart_airport varchar (60) NOT NULL,
   arrival_airport varchar(60) NOT NULL,
   price DECIMAL(10,2) NOT NULL,
   seat_capacity int NOT NULL,
   seats_available int NOT NULL,
+  flight_status varchar (60) NOT NULL,
+  distance varchar (60) NOT NULL,
 	PRIMARY KEY (id)
 );
 
@@ -28,17 +30,6 @@ flight_id int(100) NOT NULL,
   date_of_birth varchar (60) NOT NULL,
   email varchar (100) NOT NULL,
   phone varchar (100),
-  credit_card_type varchar (60) NOT NULL,
-  credit_card_number varchar (16) NOT NULL,
-  first_name_cc varchar(60) NOT NULL,
-  last_name_cc varchar(60) NOT NULL,
-  expiration_date int(10) NOT NULL,
-  cvc_cc varchar(3) NOT NULL,
-  country varchar (60) NOT NULL,
-  street_address varchar (100) NOT NULL,
-  city varchar(100) NOT NULL,
-  state_address varchar (60) NOT NULL,
-  zip_code int (20) NOT NULL,
 	PRIMARY KEY (booking_number),
   	FOREIGN KEY ( booking_number) REFERENCES flights(id)
 );

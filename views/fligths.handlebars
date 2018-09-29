@@ -1,3 +1,119 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-md-12">
+      <form class="flights-list form">
+
+        <!-- Heading and Anchor link for first flight -->
+        {{#each flights}}
+        <div class="form-row">
+          <div class="col-sm-12">
+            <h3 class="mb-3">DEPART <strong>{{depart_airport}}</strong> to <strong>{{arrival_airport}}</strong></h3>
+            <a href="/">New Search</a>
+          </div>
+        </div>
+
+        <!-- First Flight Info Section --->
+        <div class="form-row mt-3 form-border p-3">
+          <div class="col-sm-3 col-md-3 col-lg-3">
+            <input type="text" readonly class="form-control-plaintext h4 text-muted" id="depart_airpot" value="{{depart_airport}}">
+            <div class="form-group">
+              <input type="text" readonly class="form-control-plaintext h3" id="depart_time" value="{{formatted_departure}}">
+            </div>
+            <div class="form-group">
+              <h4>Nonstop</h4>
+              <span>FLIGHT #FA{{id}}</span>
+            </div>
+          </div>
+          <div class="col-sm-3 col-md-3 col-lg-3">
+            <input type="text" readonly class="form-control-plaintext h4 text-muted" id="depart_airpot" value="{{arrival_airport}}">
+            <div class="form-group">
+              <input type="text" readonly class="form-control-plaintext h3" id="depart_time" value="{{formatted_arrival}}">
+            </div>
+            <div class="form-group">
+              <h6>3 hours</h6>
+            </div>
+          </div>
+          <div class="col-sm-4  col-md-4 col-lg-4 ml-auto">
+            <div class="form-group">
+              <label class="form-control-plaintext h4 text-muted" for="price">Price:</label>
+              <input type="text" readonly class="form-control-plaintext h2" id="price" value=" ${{price}}">
+              <input type="hidden" id="firstFlightID" value="{{id}}">
+              <input type="hidden" id="seats_ava1st" value="{{seats_available}}">
+            </div>
+          </div>
+          <div class="col-sm-2 col-md-2 col-lg-2">
+            <div class="form-group">
+              <label class="form-control-plaintext h4 text-muted" for="select">Select:</label>
+              <select id="1stFlight">
+                <option type="radio" name="1stFlight" value="1">YES</option>
+                <option type="radio" name="1stflight" value="0">NOT</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <!-- First Flight Section ends here--->
+        {{/each}}
+
+        <!-- Heading and Anchor link for Second flight -->
+        {{#each flights2}}
+        <div class="form-row mt-5">
+          <div class="col-sm-12">
+            <h3 class="mb-3">DEPART <strong>{{depart_airport}}</strong> to <strong>{{arrival_airport}}</strong></h3>
+          </div>
+        </div>
+
+        <!-- Second Flight Info Section --->
+        <div class="form-row mt-3 form-border p-3">
+          <div class="col-sm-3 col-md-3 col-lg-3">
+            <input type="text" readonly class="form-control-plaintext h4 text-muted" id="depart_airpot" value="{{depart_airport}}">
+            <div class="form-group">
+              <input type="text" readonly class="form-control-plaintext h3" id="depart_time" value="{{formatted_departure}}">
+            </div>
+            <div class="form-group">
+              <h4>Nonstop</h4>
+              <span>FLIGHT #FA{{id}}</span>
+            </div>
+          </div>
+          <div class="col-sm-3 col-md-3 col-lg-3">
+            <input type="text" readonly class="form-control-plaintext h4 text-muted" id="depart_airpot" value="{{arrival_airport}}">
+            <div class="form-group">
+              <input type="text" readonly class="form-control-plaintext h3" id="depart_time" value="{{formatted_arrival}}">
+            </div>
+            <div class="form-group">
+              <h6>3 hours</h6>
+            </div>
+          </div>
+          <div class="col-sm-4  col-md-4 col-lg-4 ml-auto">
+            <div class="form-group">
+              <label class="form-control-plaintext h4 text-muted" for="price">Price:</label>
+              <input type="text" readonly class="form-control-plaintext h2" id="price" value=" ${{price}}">
+              <input type="hidden" id="secondFlightID" value="{{id}}">
+              <input type="hidden" id="seats_ava2nd" value="{{seats_available}}">
+            </div>
+          </div>
+          <div class="col-sm-2 col-md-2 col-lg-2">
+            <div class="form-group">
+              <label class="form-control-plaintext h4 text-muted" for="select">Select:</label>
+              <select id="2ndFlight">
+                <option type="radio" name="2ndFlight" value="1">YES</option>
+                <option type="radio" name="2ndFlight" value="0">NOT</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <!-- First Flight Section ends here--->
+        {{/each}}
+
+        <div class="col-sm-12 mt-4 btn-lg">
+          <button type="submit" class="px-5  btn btn-success" data-seats="{{seats_available}}" data-id="{{id}}">Buy</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+{{!--
 <header id="home-section">
   <div class="dark-overlay">
     <div class="home-inner">
@@ -62,4 +178,4 @@
       </div>
     </div>
   </div>
-</header>
+</header> --}}

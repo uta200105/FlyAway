@@ -27,9 +27,12 @@ router.get(
   }
 );
 
-router.get('/flightId/:id/seatsAva/:seats', function(req, res) {
-  console.log(req.params.id);
-  res.render('purchase', { flightId: req.params.id, seats: req.params.seats });
+router.get('/flightId/:id1/:seats1st/:id2?/:seats2nd?', function(req, res) {
+  console.log(req.params.id1);
+  res.render('purchase', {
+    flightId: req.params.id1,
+    seats: req.params.seats1st
+  });
 });
 
 router.post('/api/bookings', function(req, res) {
@@ -41,18 +44,7 @@ router.post('/api/bookings', function(req, res) {
       'last_name',
       'date_of_birth',
       'email',
-      'phone',
-      'credit_card_type',
-      'credit_card_number',
-      'first_name_cc',
-      'last_name_cc',
-      'expiration_date',
-      'cvc_cc',
-      'country',
-      'street_address',
-      'city',
-      'state_address',
-      'zip_code'
+      'phone'
     ],
     [
       req.body.flightId,
@@ -61,18 +53,7 @@ router.post('/api/bookings', function(req, res) {
       req.body.lastName,
       req.body.birth,
       req.body.email,
-      req.body.phone,
-      req.body.cardType,
-      req.body.cardNumber,
-      req.body.firstNameOnCard,
-      req.body.lastNameOnCard,
-      req.body.cardExp,
-      req.body.cvcNumber,
-      req.body.country,
-      req.body.street,
-      req.body.city,
-      req.body.state,
-      req.body.zipcode
+      req.body.phone
     ],
     function(result) {
       // Send back the ID of the new quote
@@ -112,6 +93,21 @@ router.get(
   }
 );
 
+router.get('/flightsatus/:flightNumer/:bookingNumber/:email', function(
+  req,
+  res
+) {
+  var condition1 = `flight_id =  '${req.params.flightNumer}'`;
+  var condition2 = `booking_number =  '${req.params.bookingNumber}'`;
+  var condition3 = `email =  '${req.params.email}'`;
+  jets.findJoinTables(condition1, condition2, condition3, function(data) {
+    var hbsObject = {
+      fligth: data
+    };
+    res.render('flightstatus', hbsObject);
+  });
+});
+
 router.delete('/api/bookings/:id', function(req, res) {
   var condition = 'booking_number = ' + req.params.id;
   jets.delete(condition, function(result) {
@@ -121,6 +117,10 @@ router.delete('/api/bookings/:id', function(req, res) {
       res.status(200).end();
     }
   });
+});
+
+router.get('*', function(req, res) {
+  res.status(404).render('notfound');
 });
 
 module.exports = router;
