@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/assets/css/jet_style.css" type="text/css" />
+  <title>Fly Away!</title>
+
+
+  <!-- CSS --->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.2.0/ekko-lightbox.css">
+
+  <!--JS -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.2.0/ekko-lightbox.js"></script>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-sm navbar-light bg-light fixed-top">
+    <div class="container">
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a href="/" class="navbar-brand">
+        <h1 class="d-inline align-middle logo"><strong>FlyAway</strong></h1>
+        <img src="/assets/images/logo2.png" width="75" alt="">
+      </a>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Book Flights <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/">My Bookings</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/">Flight Status</a>
+          </li>
+        </ul>
+        <span class="navbar-text mr-2">
+          Need help?
+        </span>
+        <button class="btn btn-primary" data-toggle="modal" data-target="#contactModal"> Contact Us</button>
+      </div>
+    </div>
+    </div>
+  </nav>
+
+
+
+
+
+
+  {{{ body }}}
+
+  <div class="container-fluid mt-3" id="carousel">
+    <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="3000">
+      <div class="carousel-inner row w-100 mx-auto" role="listbox" id="img-saveurs">
+        <div class="carousel-item col-md-3  active">
+          <div class="panel panel-default">
+            <div class="panel-thumbnail">
+              <a href="#modal-saveurs" class="thumb">
+                <img class="img-fluid mx-auto d-block" src="/assets/images/travel1.jpg">
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item col-md-3 ">
+          <div class="panel panel-default">
+            <div class="panel-thumbnail">
+              <a href="#modal-saveurs" class="thumb">
+                <img class="img-fluid mx-auto d-block" src="/assets/images/travel2.jpg">
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item col-md-3 ">
+          <div class="panel panel-default">
+            <div class="panel-thumbnail">
+              <a href="#modal-saveurs" class="thumb">
+                <img class="img-fluid mx-auto d-block" src="/assets/images/travel3.jpg">
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item col-md-3 ">
+          <div class="panel panel-default">
+            <div class="panel-thumbnail">
+              <a href="#modal-saveurs" title="image 5" class="thumb">
+                <img class="img-fluid mx-auto d-block" src="/assets/images/travel4.jpg">
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item col-md-3 ">
+          <div class="panel panel-default">
+            <div class="panel-thumbnail">
+              <a href="#modal-saveurs" class="thumb">
+                <img class="img-fluid mx-auto d-block" src="/assets/images/travel1.jpg">
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item col-md-3 ">
+          <div class="panel panel-default">
+            <div class="panel-thumbnail">
+              <a href="#modal-saveurs" class="thumb">
+                <img class="img-fluid mx-auto d-block" src="/assets/images/travel2.jpg">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN FOOTER -->
+
+  <footer id="main-footer" class="bg-white text-black">
+    <div class="container">
+      <div class="row">
+        <div class="col text-center">
+          <div class="py-4">
+            <h1 class="h5 text-muted">FlyAway</h1>
+            <p class="text-muted">Copyright &copy; 2017</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CONTACT MODAL -->
+
+  <div class="modal fade text-dark" id="contactModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="contactModalTitle">Contact Us</h5>
+          <button class="close" data-dismiss="modal"><span>&times;</span></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="text" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="name">Message</label>
+              <textarea class="form-control"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary btn-block">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="/assets/js/public.js"></script>
+  <script>
+    $('.port-item').click(function () {
+      $('.collapse').collapse('hide');
+    });
+
+    $('.sub-port-rt').click(function () {
+      $('#round-trip').collapse('show');
+      $('#one-way').collapse('hide');
+      $('.sub-port-rt').removeClass('bg-white text-dark');
+      $('.sub-port-rt').addClass('bg-dark text-white');
+      $('.sub-port-ow').addClass('bg-white text-dark');
+      $('.sub-port-ow').removeClass('bg-dark text-white');
+    });
+
+    $('.sub-port-ow').click(function () {
+      $('#one-way').collapse('show');
+      $('#round-trip').collapse('hide');
+      $('.sub-port-ow').removeClass('bg-white text-dark');
+      $('.sub-port-ow').addClass('bg-dark text-white');
+      $('.sub-port-rt').addClass('bg-white text-dark');
+      $('.sub-port-rt').removeClass('bg-dark text-white');
+    })
+
+    $(document).on('click', '[data-toggle="lightbox"]', function (event) {
+      event.preventDefault();
+      $(this).ekkoLightbox();
+    });
+  </script>
+  <script>
+
+    $('#carousel').on('slide.bs.carousel', function (e) {
+
+      var $e = $(e.relatedTarget);
+      var idx = $e.index();
+      var itemsPerSlide = 4;
+      var totalItems = $('.carousel-item').length;
+
+      if (idx >= totalItems - (itemsPerSlide - 1)) {
+        var it = itemsPerSlide - (totalItems - idx);
+        for (var i = 0; i < it; i++) {
+          // append slides to end
+          if (e.direction == "left") {
+            $('.carousel-item').eq(i).appendTo('.carousel-inner');
+          }
+          else {
+            $('.carousel-item').eq(0).appendTo('.carousel-inner');
+          }
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>
