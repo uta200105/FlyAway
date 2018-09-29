@@ -4,11 +4,11 @@ dotenv.config();
 // REQUIRE MYSQL DEPENDENCY
 var mysql = require('mysql');
 
-var { DB_USER, DB_PASS, DB_NAME } = process.env;
+var { DB_USER, DB_PASS, DB_PORT, DB_NAME } = process.env;
 
 //CREATE CONNECTION
 var config = {
-  port: 8889,
+  port: DB_PORT,
   host: 'localhost',
   user: DB_USER,
   password: DB_PASS,
