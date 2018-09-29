@@ -1,74 +1,75 @@
 $(function() {
-  $('.search-form').on('submit', function(event) {
+  //The next event will trigger a search for rountrip flights
+  $('.search-form-rt').on('submit', function(event) {
     event.preventDefault();
 
     var roundtrip = $('[name=rountt]:checked').val();
     console.log(roundtrip);
+    var newSearch = {
+      departure: $('#departure')
+        .val()
+        .trim(),
+      arrival: $('#arrival')
+        .val()
+        .trim(),
+      departure2: $('#arrival')
+        .val()
+        .trim(),
+      arrival2: $('#departure')
+        .val()
+        .trim(),
+      departdate: $('#depart_date')
+        .val()
+        .trim(),
+      returningdate: $('#returning_date')
+        .val()
+        .trim()
+    };
 
-    if (roundtrip) {
-      var newSearch = {
-        departure: $('#departure')
-          .val()
-          .trim(),
-        arrival: $('#arrival')
-          .val()
-          .trim(),
-        departure2: $('#arrival')
-          .val()
-          .trim(),
-        arrival2: $('#departure')
-          .val()
-          .trim(),
-        departdate: $('#depart_date')
-          .val()
-          .trim(),
-        returningdate: $('#returning_date')
-          .val()
-          .trim()
-      };
+    var URL =
+      '/flights/' +
+      newSearch.departure +
+      '/' +
+      newSearch.arrival +
+      '/' +
+      newSearch.departdate +
+      '/' +
+      newSearch.departure2 +
+      '/' +
+      newSearch.arrival2 +
+      '/' +
+      newSearch.returningdate;
 
-      console.log(newSearch);
-      var URL =
-        '/flights/' +
-        newSearch.departure +
-        '/' +
-        newSearch.arrival +
-        '/' +
-        newSearch.departdate +
-        '/' +
-        newSearch.departure2 +
-        '/' +
-        newSearch.arrival2 +
-        '/' +
-        newSearch.returningdate;
-
-      window.location.href = URL;
-    } else {
-      var newSearch = {
-        departure: $('#departure')
-          .val()
-          .trim(),
-        arrival: $('#arrival')
-          .val()
-          .trim(),
-        departdate: $('#depart_date')
-          .val()
-          .trim()
-      };
-      console.log(newSearch);
-      var URL =
-        '/flights/' +
-        newSearch.departure +
-        '/' +
-        newSearch.arrival +
-        '/' +
-        newSearch.departdate;
-
-      window.location.href = URL;
-    }
+    window.location.href = URL;
   });
 
-  $('.find-reservation ').on('submit', function(event) {
+  //The next event will trigger a search for rountrip flights
+  $('.search-form-ow').on('submit', function(event) {
+    event.preventDefault();
+    var newSearch = {
+      departure: $('#departure-ow')
+        .val()
+        .trim(),
+      arrival: $('#arrival-ow')
+        .val()
+        .trim(),
+      departdate: $('#depart_date-ow')
+        .val()
+        .trim()
+    };
+    console.log(newSearch);
+    var URL =
+      '/flights/' +
+      newSearch.departure +
+      '/' +
+      newSearch.arrival +
+      '/' +
+      newSearch.departdate;
+
+    window.location.href = URL;
+  });
+
+  $('.find-reservation').on('submit', function(event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
 
@@ -94,20 +95,91 @@ $(function() {
     window.location.href = URL;
   });
 
-  $('.selectedFlight').on('click', function(event) {
-    // Make sure to preventDefault on a submit event.
+  $('.find-flightStatus').on('submit', function(event) {
     event.preventDefault();
 
-    // var id = $(this).data('id');
-    var flightInfo = {
-      id: $(this).data('id'),
-      seats_available: $(this).data('seats')
+    var findFlightStatus = {
+      flightNumer: $('#flightIdNumber')
+        .val()
+        .trim(),
+      bookingNumber: $('#bookingNumber')
+        .val()
+        .trim(),
+      email: $('#bookingEmail')
+        .val()
+        .trim()
     };
-
     var URL =
-      '/flightId/' + flightInfo.id + '/seatsAva/' + flightInfo.seats_available;
+      '/flightsatus/' +
+      findFlightStatus.flightNumer +
+      '/' +
+      findFlightStatus.bookingNumber +
+      '/' +
+      findFlightStatus.email;
     window.location.href = URL;
   });
+
+  $('.flights-list').on('submit', function(event) {
+    event.preventDefault();
+
+    var rt1stFlight = $('#1stFlight').val();
+    console.log(rt1stFlight);
+    var rt2ndFlight = $('#2ndFlight').val();
+    console.log(rt2ndFlight);
+
+    if (rt1stFlight && rt2ndFlight === '1') {
+      var flightInfo2 = {
+        id1: $('#firstFlightID')
+          .val()
+          .trim(),
+        seats1st: $('#seats_ava1st')
+          .val()
+          .trim(),
+        id2: $('#secondFlightID')
+          .val()
+          .trim(),
+        seats2nd: $('#seats_ava2nd')
+          .val()
+          .trim()
+      };
+      var URL =
+        '/flightId/' +
+        flightInfo2.id1 +
+        '/' +
+        flightInfo2.seats1st +
+        '/' +
+        flightInfo2.id2 +
+        '/' +
+        flightInfo2.seats2nd;
+      window.location.href = URL;
+    } else if (rt1stFlight === '1') {
+      var flightInfo = {
+        id1: $('#firstFlightID')
+          .val()
+          .trim(),
+        seats1st: $('#seats_ava1st')
+          .val()
+          .trim()
+      };
+      var URL = '/flightId/' + flightInfo.id1 + '/' + flightInfo.seats1st;
+      window.location.href = URL;
+    }
+  });
+
+  // $('.selectedFlight').on('click', function(event) {
+  //   // Make sure to preventDefault on a submit event.
+  //   event.preventDefault();
+
+  //   // var id = $(this).data('id');
+  //   var flightInfo = {
+  //     id: $(this).data('id'),
+  //     seats_available: $(this).data('seats')
+  //   };
+
+  //   var URL =
+  //     '/flightId/' + flightInfo.id + '/seatsAva/' + flightInfo.seats_available;
+  //   window.location.href = URL;
+  // });
 
   $('.data-form').on('submit', function(event) {
     // Make sure to preventDefault on a submit event.
@@ -131,37 +203,6 @@ $(function() {
         .val()
         .trim(),
       phone: $('#phone')
-        .val()
-        .trim(),
-      cardType: $('#cardType').val(),
-      cardNumber: $('#cardNumber')
-        .val()
-        .trim(),
-      firstNameOnCard: $('#firstNameOnCard')
-        .val()
-        .trim(),
-      lastNameOnCard: $('#lastOnNameCard')
-        .val()
-        .trim(),
-      cardExp: $('#cardExp')
-        .val()
-        .trim(),
-      cvcNumber: $('#cvcNumber')
-        .val()
-        .trim(),
-      country: $('#country')
-        .val()
-        .trim(),
-      street: $('#street')
-        .val()
-        .trim(),
-      city: $('#city')
-        .val()
-        .trim(),
-      state: $('#state')
-        .val()
-        .trim(),
-      zipcode: $('#zipcode')
         .val()
         .trim()
     };
